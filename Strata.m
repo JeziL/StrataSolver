@@ -229,10 +229,10 @@
     NSString *str;
     
     if ([[[step componentsSeparatedByString:@","] objectAtIndex:0] intValue] < self.row) {
-        str = [NSString stringWithFormat:@"用颜色 %@ 填充第 %d 行",[step substringFromIndex:step.length - 1], [[[step componentsSeparatedByString:@","] objectAtIndex:0] intValue] + 1];
+        str = [NSString stringWithFormat:@"Fill the line %d with color %@", [[[step componentsSeparatedByString:@","] objectAtIndex:0] intValue] + 1, [step substringFromIndex:step.length - 1]];
     }
     else {
-        str = [NSString stringWithFormat:@"用颜色 %@ 填充第 %d 列",[step substringFromIndex:step.length - 1], [[[step componentsSeparatedByString:@","] objectAtIndex:0] intValue] - (int)self.row + 1];
+        str = [NSString stringWithFormat:@"Fill the column %d with color %@", [[[step componentsSeparatedByString:@","] objectAtIndex:0] intValue] - (int)self.row + 1, [step substringFromIndex:step.length - 1]];
     }
     
     return str;
