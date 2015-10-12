@@ -84,9 +84,17 @@
             countMax_row = (count > countMax_row)?count:countMax_row;
         }
     }
+
+    int countOfZero = 0;
+    for (NSUInteger i = 0; i < self.row; i++) {
+        for (NSUInteger j = 0; j < self.row; j++) {
+            if ([self.matrix[i][j] intValue] == 0)
+                countOfZero++;
+        }
+    }
     
     // Line or row?
-    if (countMax_line >= countMax_row && countMax_line != 1 && countMax_line != 0) {
+    if (countMax_line >= countMax_row && (countMax_line != 1 || countOfZero < (self.row * (self.row - 1))) && countMax_line != 0) {
         next = next_line;
         nextColor = nextColor_line;
         if (next != 2 * self.row) {
@@ -95,7 +103,7 @@
             }
         }
     }
-    if (countMax_line < countMax_row && countMax_row != 1 && countMax_row != 0) {
+    if (countMax_line < countMax_row && (countMax_row != 1 || countOfZero < (self.row * (self.row - 1))) && countMax_row != 0) {
         next = next_row + self.row;
         nextColor = nextColor_row;
         if (next != 2 * self.row) {
