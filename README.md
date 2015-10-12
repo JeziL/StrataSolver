@@ -2,11 +2,23 @@
 
 ## Description
 
-This is a solver of the game *Strata*, running on Mac OS X.
+This is a solver of the game *Strata*, written with Objective-C and C++.
 
 ## How to use it
 
-Edit `Question.txt` and run `./StrataSolver` in Terminal to solve it.
+1. Edit `Question.txt` 
+
+2. Run the code in any IDE. If you'd like to run it in terminal, use:
+
+	```
+	# In /StrataSolver_ObjectiveC: 
+	gcc main.m Strata.m -framework Foundation -o StrataSolver
+	./StrataSolver
+	
+	# In /StrataSolver_CPP: 
+	make
+	./StrataSolver
+	```
 
 ### Notes:
 
