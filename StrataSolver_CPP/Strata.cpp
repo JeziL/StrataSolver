@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <ctime>
 #include <algorithm>
 #include "Strata.h"
 using namespace std;
@@ -157,6 +158,8 @@ void Strata::solveFinally() {
             targetRow = i;
         }
     }
+
+    srand((unsigned)time(NULL));
     
     if (countMax_line >= countMax_row && targetLine != 2 * row) {
         for (int i = 0; i < row; i++) {
@@ -165,7 +168,7 @@ void Strata::solveFinally() {
                 newSolve.push_back(str);
             }
         }
-        string str = to_string(targetLine) + ',' + to_string((arc4random() % 2) + 1);
+        string str = to_string(targetLine) + ',' + to_string((rand() % 2) + 1);
         newSolve.push_back(str);
     }
     else if (targetRow != 2 * row){
@@ -175,7 +178,7 @@ void Strata::solveFinally() {
                 newSolve.push_back(str);
             }
         }
-        string str = to_string(targetRow + row) + ',' + to_string((arc4random() % 2) + 1);
+        string str = to_string(targetRow + row) + ',' + to_string((rand() % 2) + 1);
         newSolve.push_back(str);
     }
 
